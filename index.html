@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+    <h4>Click On Small Images</h4>
+	<img src="images/1.jpg" id="big_image">
+      <br>
+	<img src="images/1.jpg" class="small_images" onclick="changeImage(0)">
+	<img src="images/2.jpg" class="small_images" onclick="changeImage(1)">
+	<img src="images/3.jpg" class="small_images" onclick="changeImage(2)">
+
+
+</body>
+</html>
+
+<script type="text/javascript">
+	temp=document.getElementsByClassName('small_images');
+	selectedImage=0;
+	temp[selectedImage].style.border="1.5px solid #fb760b";
+
+	  function changeImage(i) {
+	  	temp[i].style.border="1.5px solid #fb760b";
+	  	temp[selectedImage].style.border="1.5px solid #ddd";
+	  	selectedImage=i;
+        document.getElementById('big_image').src=temp[selectedImage].src;
+	  }
+</script>
+
+<style type="text/css">
+	#big_image{
+		margin: 50px;
+		width: 400px;
+		height: 250px;
+		border: 1.5px #ddd solid;
+	}
+	#big_image:hover {
+		cursor: crosshair;
+		transition: all 1s .2s;
+		transform: scale(1.2);
+	}
+
+    .small_images {
+    	width: 50px;
+    	height: 50px;
+    	margin: 10px;
+    	cursor: pointer;
+    	border-radius: 5px;
+    	border: 1.5px #ddd solid;
+    }
+    h4{
+    	text-align: center;
+    }
+
+</style>
